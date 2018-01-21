@@ -30,4 +30,22 @@ namespace HelpDeskProject.Models
             return new ApplicationDbContext();
         }
     }
+    public class MyDbContext : DbContext
+    {
+        
+        static MyDbContext()
+        {
+           
+           Database.SetInitializer
+                (new DropCreateDatabaseIfModelChanges<MyDbContext>());
+
+          
+        }
+
+        public MyDbContext() : base("DefaultConnection")
+		{
+        }
+        public DbSet<Devices.Printer.Printer> Printers { get; set; }
+        public DbSet<RepairModel> Repairs { get; set; }
+    }
 }

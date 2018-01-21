@@ -1,0 +1,57 @@
+﻿@model IEnumerable<HelpDeskProject.Models.Printer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrinterModel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrinterType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CartdridgeType)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsActive)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrinterModel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrinterType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CartdridgeType)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

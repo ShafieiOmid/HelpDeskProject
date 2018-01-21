@@ -1,0 +1,59 @@
+﻿@model HelpDeskProject.Models.Printer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Printer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsActive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrinterModel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrinterModel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrinterType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrinterType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CartdridgeType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CartdridgeType)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Repairs","Repairs",new { id = Model.HID } )|
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

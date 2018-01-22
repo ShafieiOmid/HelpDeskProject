@@ -1,0 +1,93 @@
+﻿@model IEnumerable<HelpDeskProject.Models.Devices.Printer.Cartridge>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DrumReplaced)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaggnetReplaced)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BladeReplaced)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FoamReplaced)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TankReplaced)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrinterModel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CartridgeModel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeliverTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CommitTime)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsActive)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DrumReplaced)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaggnetReplaced)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BladeReplaced)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FoamReplaced)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TankReplaced)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrinterModel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CartridgeModel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeliverTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CommitTime)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

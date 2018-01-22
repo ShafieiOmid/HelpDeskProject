@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using HelpDeskProject.Models;
+using HelpDeskProject.Models.Devices.Printer;
 
 namespace HelpDeskProject.Controllers
 {

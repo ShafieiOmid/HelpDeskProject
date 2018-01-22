@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
+
 namespace HelpDeskProject.Models
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
@@ -21,7 +22,7 @@ namespace HelpDeskProject.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("DatabaseContext", throwIfV1Schema: false)
         {
         }
 
@@ -42,10 +43,11 @@ namespace HelpDeskProject.Models
           
         }
 
-        public MyDbContext() : base("DefaultConnection")
+        public MyDbContext() : base("DatabaseContext")
 		{
         }
         public DbSet<Devices.Printer.Printer> Printers { get; set; }
         public DbSet<RepairModel> Repairs { get; set; }
+        public DbSet<Devices.Printer.Cartridge> Cartridges { get; set; }
     }
 }

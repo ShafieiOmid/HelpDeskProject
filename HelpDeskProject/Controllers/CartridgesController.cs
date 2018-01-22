@@ -11,108 +11,109 @@ using HelpDeskProject.Models.Devices.Printer;
 
 namespace HelpDeskProject.Controllers
 {
-    public class PrintersController : Controller
+    public class CartridgesController : Controller
     {
         private MyDbContext db = new MyDbContext();
 
-        // GET: Printers
+        // GET: Cartridges
         public ActionResult Index()
         {
-            return View(db.Printers.ToList());
+            return View(db.Cartridges.ToList());
         }
 
-        // GET: Printers/Details/5
+        // GET: Cartridges/Details/5
         public ActionResult Details(Guid? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Printer printer = db.Printers.Find(id);
-            if (printer == null)
+            Cartridge cartridge = db.Cartridges.Find(id);
+            if (cartridge == null)
             {
                 return HttpNotFound();
             }
-            return View(printer);
+            return View(cartridge);
         }
 
-        // GET: Printers/Create
+        // GET: Cartridges/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Printers/Create
+        // POST: Cartridges/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,IsActive,HID,PrinterModel,PrinterType,CartdridgeType")] Printer printer)
+        public ActionResult Create([Bind(Include = "Id,IsActive,DrumReplaced,MaggnetReplaced,BladeReplaced,FoamReplaced,TankReplaced,CID,PrinterModel,CartridgeModel,DeliverTime,CommitTime")] Cartridge cartridge)
         {
             if (ModelState.IsValid)
             {
-                printer.Id = Guid.NewGuid();
-                db.Printers.Add(printer);
+                cartridge.CommitTime = DateTime.Now;
+                cartridge.Id = Guid.NewGuid();
+                db.Cartridges.Add(cartridge);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(printer);
+            return View(cartridge);
         }
 
-        // GET: Printers/Edit/5
+        // GET: Cartridges/Edit/5
         public ActionResult Edit(Guid? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Printer printer = db.Printers.Find(id);
-            if (printer == null)
+            Cartridge cartridge = db.Cartridges.Find(id);
+            if (cartridge == null)
             {
                 return HttpNotFound();
             }
-            return View(printer);
+            return View(cartridge);
         }
 
-        // POST: Printers/Edit/5
+        // POST: Cartridges/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,IsActive,HID,PrinterModel,PrinterType,CartdridgeType")] Printer printer)
+        public ActionResult Edit([Bind(Include = "Id,IsActive,DrumReplaced,MaggnetReplaced,BladeReplaced,FoamReplaced,TankReplaced,CID,PrinterModel,CartridgeModel,DeliverTime,CommitTime")] Cartridge cartridge)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(printer).State = EntityState.Modified;
+                db.Entry(cartridge).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(printer);
+            return View(cartridge);
         }
 
-        // GET: Printers/Delete/5
+        // GET: Cartridges/Delete/5
         public ActionResult Delete(Guid? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Printer printer = db.Printers.Find(id);
-            if (printer == null)
+            Cartridge cartridge = db.Cartridges.Find(id);
+            if (cartridge == null)
             {
                 return HttpNotFound();
             }
-            return View(printer);
+            return View(cartridge);
         }
 
-        // POST: Printers/Delete/5
+        // POST: Cartridges/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
-            Printer printer = db.Printers.Find(id);
-            db.Printers.Remove(printer);
+            Cartridge cartridge = db.Cartridges.Find(id);
+            db.Cartridges.Remove(cartridge);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

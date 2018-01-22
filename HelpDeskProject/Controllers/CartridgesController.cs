@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using HelpDeskProject.Models;
 using HelpDeskProject.Models.Devices.Printer;
 
+
 namespace HelpDeskProject.Controllers
 {
     public class CartridgesController : Controller
